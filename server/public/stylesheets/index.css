@@ -1,0 +1,951 @@
+@font-face{
+  font-family: PremierRegular;
+  src: url(../font/PremierLeagueW01-Regular.woff2);
+}
+@font-face{
+  font-family: PremierBold;
+  src: url(../font/PremierLeagueW01-Bold.woff2);
+}
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.btn:hover{
+  color: white!important;
+}
+
+.btn{
+  line-height: 0.5rem!important;
+  color: white;
+}
+
+.active{
+  background: #38003c!important;
+}
+
+body{
+  background-image: url(https://pl.ecal.com/assets/branding/pl.jpg);
+  background-size: cover;
+  background-position-y: -270px;
+  background-repeat: no-repeat;
+}
+body::before{
+  content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: hsla(0,0%,100%,.5);
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+.app{
+  font-family: PremierRegular;
+  font-weight: 400;
+  font-size: 14px;
+  position: absolute;
+  background-color: transparent;
+  min-height: 310px;
+  min-width: 694px;
+  height: auto;
+  width: auto;
+  box-shadow: 0 0 15px 0 rgba(0,0,0,.5);
+}
+.container.main{
+  height: 100%;
+  width: 100%;
+}
+.btn-group.btn-group-toggle{
+  margin: 0.5rem 1.2rem;
+}
+.btn-group.btn-group-toggle > .btn{
+  line-height: 0.2rem;
+}
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto{
+  height: 100%;
+  padding: 0;
+}
+@media (min-width: 1258px){
+  .app{
+      left: 11%;
+      top: 9%;
+      bottom: 9%;
+      right: 5%;
+  }
+}
+@media (max-width: 1258px){
+  .app{
+      left: 0px;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+  }
+}
+@media (min-width: 1033px){
+  .ContentLeft{
+      width: 29.6%;
+  }
+  .content{
+      width: calc((100% - 29.6%) - 70px);
+  }
+}
+@media (max-width: 1032px){
+  .ContentLeft{
+      /* display: none; */
+      width: 29.6%;
+  }
+  .content{
+      width: calc((100% - 29.6%) - 70px);
+  }
+}
+@media (max-width: 694px){
+  .ContentLeft{
+      display: none;
+  }
+  .content{
+      width: 623px!important;
+  }
+}
+.RedNav{
+  background-image: linear-gradient(#e90052, #38003c);
+}
+.BlueNav{
+  background-image: linear-gradient(#05F0FE, #38003c);
+}
+.GreenNav{
+  background-image: linear-gradient(#00FF87, #38003c);
+}
+.YellowNav{
+  background-image: linear-gradient(#EBFF01, #38003c);
+}
+.Red{
+  background-color: #e90052;
+}
+.Blue{
+  background-color: #05F0FE;
+}
+.Green{
+  background-color:#00FF87;
+}
+.Yellow{
+  background-color: #EBFF01;
+}
+.Red:hover{
+  text-decoration: none;
+  color: white;
+  background-color: #e90052;
+}
+.Blue:hover{
+  text-decoration: none;
+  color: white;
+  background-color: #05F0FE;
+}
+.Green:hover{
+  text-decoration: none;
+  color: white;
+  background-color:#00FF87;
+}
+.Yellow:hover{
+  text-decoration: none;
+  color: white;
+  background-color: #EBFF01;
+}
+.sideBarNav{
+  float: left;
+  min-height: 310px;
+  height: 100%;
+  width: 70px;
+}
+.nav:hover{
+  background: rgba(255, 255, 255, 0.2);
+}
+.nav.selected:hover{
+  background: rgba(0, 0, 0, 0.2);
+}
+.selected{
+  background: rgba(0, 0, 0, 0.2);
+}
+.nav {
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  cursor: pointer;
+}
+.user{
+  padding: .5rem .5rem 1.5rem .5rem;
+}
+.img {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-size: cover;
+}
+.avatar {
+  background-image: url(https://pl.ecal.com/assets/branding/logo.svg);
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  border: 1px solid white;
+}
+.schedule {
+  background-image: url(./img/icons8-calendar-7-50.png);
+}
+.TV {
+  background-image: url(./img/icons8-tv-50.png);
+}
+.RP {
+  background-image: url(./img/icons8-memories-50.png);
+}
+.setting{
+  position: absolute;
+  bottom: 0;
+}
+.ST {
+  background-image: url(./img/icons8-settings-50.png);
+}
+.ContentLeft{
+  background-color: white;
+  border-right: 1px solid #E5E5E9;
+  min-height: 310px;
+  height: 100%;
+}
+.User{
+  border-bottom: 1px solid #E5E5E9;
+}
+.btnUserName{
+  color: white;
+  margin: 1.5rem 0 0 .5rem;
+  padding: .2rem;
+  line-height: 0.5rem;
+}
+/* .BXHTitle{
+  display: block;
+  margin: 1rem 5rem .1rem 5rem;
+  height: 30px;
+  width: 170px;
+  background: url(https://www.premierleague.com/resources/prod/db94c65-588/i/sprites/global-sprite.png) -198px -505px no-repeat;
+} */
+.CLContent{
+  height: calc(100% - 90px);
+}
+.CLContentTitle{
+  display: block;
+  padding: 0.5rem;
+  font-family: PremierBold;
+  font-size: 14px;
+}
+.CLContentHeader{
+  background: #F8F8F8;
+  border-bottom: 1px solid #E5E5E9;
+}
+.BXH{
+  height: calc(100% - 74px);
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+.logo20{
+  background-image: url(https://www.premierleague.com/resources/prod/db94c65-588/i/sprites/badges-20-sprite.png);
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .5rem;
+}
+table > thead > tr >.team{
+  padding-left: 15px;
+}
+table td{
+  text-align: center;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 6px 10px;
+}
+table th{
+  color: #666;
+  padding: 6px 10px;
+}
+table a{
+  color: #242424;
+  vertical-align: middle;
+}
+.team{
+  text-align: left;
+  width: 100%;
+}
+abbr[title]{
+  text-decoration: none;
+}
+.MNC{
+  background-position: -220px 0;
+}
+.LIV{
+  background-position: 0 -200px;
+}
+.CHE{
+  background-position: -120px -120px;
+}
+.TOT{
+  background-position: -240px -440px;
+}
+.ARS{
+  background-position: 0 -40px;
+}
+.MAN{
+  background-position: -220px -180px;
+}
+.WOL{
+  background-position: -460px -40px;
+}
+.EVE{
+  background-position: -20px -160px;
+}
+.LEI{
+  background-position: -200px -120px;
+}
+.WHU{
+  background-position: -400px -440px;
+}
+.WAT{
+  background-position: -360px -440px;
+}
+.CRY{
+  background-position: -40px -140px;
+}
+.NEW{
+  background-position: 0 -220px;
+}
+.BOU{
+  background-position: -40px -100px;
+}
+.BUR{
+  background-position: -20px -120px;
+}
+.SOU{
+  background-position: -260px -220px;
+}
+.BHA{
+  background-position: -80px -80px;
+}
+.CAR{
+  background-position: -60px -120px;
+}
+.FUL{
+  background-position: -180px -100px;
+}
+.HUD{
+  background-position: -80px -180px;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+/* Track */
+/* .BXH::-webkit-scrollbar-track {
+background: #f1f1f1; 
+} */
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #f1f1f1; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #888; 
+}
+.ContentHeader{
+  background-color: white;
+  height: 88px;
+  border-bottom: 1px solid #e8e8e8;
+  display: flex;
+}
+.ContentHeaderLogo{
+  margin: .55rem 1rem;
+  display: inline-block;
+  background-image: url(./img/Champions-League-logo-880x660.png);
+  background-size: cover;
+  height: 70px;
+  width: 70px;
+}
+.HeaderContentTitle{
+  display: block;
+  padding: .7rem 0 0;
+  font-family: PremierBold;
+  font-weight: 400;
+  font-size: 22px;
+}
+.HeaderContentTime{
+  font-family: PremierRegular;
+  font-weight: 400;
+  font-size: 16px;
+}
+.CContent{
+  /* background-image: url(https://47edty239een44kihm3aaupj-wpengine.netdna-ssl.com/wp-content/uploads/2019/02/DixonBaxi_PREMIER_LEAGUE_001.jpg); */
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: PremierRegular;
+  height: calc(100% - 89px);
+  width: 100%;
+  overflow: scroll;
+}
+.allMatch{
+}
+.logo50{
+  background-image: url(https://www.premierleague.com/resources/prod/db94c65-588/i/sprites/badges-50-sprite.png);
+  background-repeat: no-repeat;
+  transform: scale(.7);
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+.allMatch a{
+  color: black;
+  text-decoration: none;
+}
+/* .allMatch a:hover{
+  background-color: #e90052;
+  color: white;
+} */
+/* .allMatch a:hover .time{
+  background-color: white;
+  color: #e90052;
+} */
+.match span{
+  display: inline-block;
+  vertical-align: middle;
+}
+.match{
+  box-shadow: 0 0 15px 0 rgba(0,0,0,.5);
+  margin-bottom: 10px; 
+  background-color: white;
+  display: flex;
+}
+.ContentMatch{
+  margin: auto;
+}
+.Left{
+  position: absolute;
+  top:20%;
+  margin-top: -24%; 
+  float: left;
+  width: 48%;
+  margin:1%;
+}
+.Right{
+  position: absolute;
+  top:20%;
+  margin-top: -24%;
+  float: left;
+  right:0;
+  width: 48%;
+  margin:1%;
+}
+.teamHome{
+  padding: 15px 0px 15px;
+}
+.time{
+  background: #76766f;
+  padding: 5px 5px 5px;
+  color: white;
+}
+.teamWay{
+  padding: 15px 0px 15px;
+}
+.content{
+  min-height: 310px;
+}
+
+
+/*Replay*/
+.replayList{
+  width: 100%;
+  height: calc(100% - 38px);
+  overflow: scroll;
+}
+.pvp{
+  background: #fff;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-bottom: 1px solid #e8e8e8;
+  display: block;
+  color: #242424;
+  position: relative;
+  transition: all .2s;
+  line-height: 24px;
+  font-family: PremierRegular;
+  font-weight: 400;
+  font-size: 14px;
+  margin-left: 1px;
+}
+/* .pvp:hover{
+  background-color: #e90052;
+  color: white;
+  text-decoration: none;
+} */
+.pvp .logo20{
+  /* background-image: url(https://www.premierleague.com/resources/prod/bf75465-492/i/sprites/badges-20-sprite.png);
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle; */
+  margin: 0 5px;
+}
+.SOU{
+  background-position: -260px -220px;
+}
+.score{
+  background-color: #76766f;
+  color: white;
+  padding: 5px;
+}
+.LIV{
+  background-position: 0 -200px;
+}
+abbr{
+  text-decoration: none;
+}
+abbr[title]{
+  border: 0;
+  cursor: pointer;
+}
+.arrow-right{
+  background-image: url(https://www.premierleague.com/resources/prod/bf75465-492/i/sprites/arrows-sprite.png);
+  background-position-x: 0px;
+  background-position-y: -69px;
+  background-repeat: repeat;
+  width: 9px;
+  height: 8px;
+  display: inline-block;
+  float: right;
+  margin-top: 10px;
+}
+
+
+/*Component Chat*/
+.chat{
+  height: calc(100% - 128px);
+  overflow-y: scroll;
+}
+.message{
+  color: white;
+  border-radius: 0 10px 10px 10px;
+  padding: 5px 9px;
+  max-width: 85%;
+  word-wrap: break-word;
+}
+.footerChat{
+  background: #F8F8F8;
+  height: 90px;
+}
+.avatarChat{
+  background-image: url(https://pl.ecal.com/assets/branding/logo.svg);
+  height: 25px;
+  width: 25px;
+  margin: 0.3rem 0.4rem 0;
+  border-radius: 100%;
+  border: 1px solid white;
+}
+.usernameChat{
+  /* position: absolute; */
+  vertical-align: top;
+  display: inline-block;
+  padding: 0.5rem 0.4rem 0 0;
+  color: #B4B4B4;
+  font-family: PremierRegular;
+  font-size: 14px;
+}
+
+.inputChat {
+  position: relative;
+  margin: 0 5px;
+  float: left;
+  width: calc(100% - 34px);
+border: none;
+overflow: visible;
+}
+input {
+  background-color: #F8F8F8;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0px 10px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #DDD;
+  font-size: 14px;
+  outline: none;
+  cursor: text;
+}
+hr {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 2px;
+  border: none;
+  background: #38003c;
+  font-size: 1px;
+  will-change: transform, visibility;
+  transition: all 200ms ease-out;
+  transform: scaleX(0);
+  visibility: hidden;
+  z-index: 10;
+}
+input:focus ~ hr {
+  transform: scaleX(1);
+  visibility: visible;
+}
+
+.material-icons.right{
+  cursor: pointer;
+}
+
+.chatHidden{
+  text-align: center;
+  height: 20px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.Dialog{
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  contain: layout;
+  animation-duration: .2s;
+}
+.dialogContainer{
+  height: 350px;
+  width: 450px;
+  background-color: white;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  left: 25%;
+  right: 25%;
+}
+.teamContainer{
+  font-family: PremierBold;
+  font-weight: 400;
+  font-size: 22px;
+  display: table;
+  margin: auto;
+}
+.teamContainer .teamHome{
+  margin: 0px 15px 0 15px;
+}
+.teamContainer .teamWay{
+  margin: 0px 15px 0 15px;
+}
+.teamContainer .logo50{
+  transform: scale(1);
+}
+.teamContainer .time{
+  font-size: 32px;
+  padding: 5px 20px;
+}
+.time:hover{
+  
+}
+.teamContainer span{
+  vertical-align: middle;
+}
+
+
+/*Login*/
+.material{
+  position: relative;
+  padding: 0;
+  margin: 5px;
+  border: none;
+  overflow: visible;
+  margin-bottom: 25px;
+}
+.material input {
+  background-color: white;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px 10px 0px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #DDD;
+  font-size: 120%;
+  outline: none;
+  cursor: text;
+}
+
+.material hr {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 2px;
+  border: none;
+  background: #38003c;
+  font-size: 1px;
+  will-change: transform, visibility;
+  transition: all 200ms ease-out;
+  transform: scaleX(0);
+  visibility: hidden;
+  z-index: 10;
+}
+.material input:focus ~ hr {
+  transform: scaleX(1);
+  visibility: visible;
+}
+
+.material label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 100%;
+  color: black;
+  transform-origin: 0 -150%;
+  transition: transform 300ms ease;
+  pointer-events: none;
+}
+.material input:focus ~ label,
+.material input:valid ~ label {
+  transform: scale(0.75);
+}
+
+.h1Dialog{
+  color: #fff;
+  margin: 0;
+  line-height: 50px;
+  height: 50px;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+  font-family: PremierRegular;
+}
+.h1Dialog span{
+  background-image: url(https://pl.ecal.com/1cd806e2c2f6e8f5de3da1b026e8f469.png);
+  background: transparent none no-repeat 25px 45%;
+  text-indent: 25px;
+  padding: 0 25px;
+  display: inline-block;
+}
+.hDRed{
+  background: #e90052 none no-repeat -5px top;
+  border-bottom: 2px solid #ff005a;
+}
+.hDBlue{
+  background: #05F0FE none no-repeat -5px top;
+  border-bottom: 2px solid #05F0FE;
+}
+.hDGreen{
+  background: #00FF87 none no-repeat -5px top;
+  border-bottom: 2px solid #00FF87;
+}
+.hDYellow{
+  background: #EBFF01 none no-repeat -5px top;
+  border-bottom: 2px solid #EBFF01;
+}
+.headerDialog{
+  min-width: 100%;
+  overflow: hidden;
+  /* border-bottom: 2px solid #ff005a; */
+  height: 50px;
+  min-height: 50px;
+  position: relative;
+  display: block;
+  /* background: #e90052 none no-repeat -5px top; */
+  background-size: contain;
+  background-image: url(https://pl.ecal.com/421ee6d7a1845cd7dd80436a48e19825.svg);
+}
+.contentDialog div{
+  margin-bottom: 15px;
+}
+.contentDialog{
+  padding: 25px;
+}
+.usname{
+  text-align: center;
+  font-size: 20px;
+}
+.profilePhoto .avatar{
+  height: 200px;
+  width: 100%;
+  background-size: cover;
+  border: none;
+  border-radius: unset;
+}
+.profileGroup{
+  padding: 0 25px 0 25px;
+  font-size: 15px;
+}
+.profileGroup > div > span:first-child{
+  color: #6d7379;
+  display: inline-block;
+  width: 118px;
+}
+.edit{
+  text-align: center;
+  height: calc(100% - 406px);
+  color: #6d7379;
+}
+.edit:hover{
+  color: cornflowerblue;
+  cursor: pointer;
+}
+
+
+/*Button*/
+.pure-material-button-contained {
+  float: right;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  padding: 0 16px;
+  min-width: 64px;
+  height: 36px;
+  vertical-align: middle;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
+  background-color: #38003c;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 36px;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.pure-material-button-contained::-moz-focus-inner {
+  border: none;
+}
+
+/* Overlay */
+.pure-material-button-contained::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* Ripple */
+.pure-material-button-contained::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  padding: 50%;
+  width: 32px; /* Safari */
+  height: 32px; /* Safari */
+  background-color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1);
+  transition: opacity 1s, transform 0.5s;
+}
+
+/* Hover, Focus */
+.pure-material-button-contained:hover,
+.pure-material-button-contained:focus {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.pure-material-button-contained:hover::before {
+  opacity: 0.08;
+}
+
+.pure-material-button-contained:focus::before {
+  opacity: 0.24;
+}
+
+.pure-material-button-contained:hover:focus::before {
+  opacity: 0.3;
+}
+
+/* Active */
+.pure-material-button-contained:active {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.pure-material-button-contained:active::after {
+  opacity: 0.32;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0s;
+}
+
+/* Disabled */
+.pure-material-button-contained:disabled {
+  color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
+  background-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.12);
+  box-shadow: none;
+  cursor: initial;
+}
+
+.pure-material-button-contained:disabled::before {
+  opacity: 0;
+}
+
+.pure-material-button-contained:disabled::after {
+  opacity: 0;
+}
+
+.react-jw-player-container{
+  background-color: white;
+  padding: 0!important;
+  height: calc(100% - 88px);
+  width: 100%;
+}
+.react-jw-player-container > div{
+  height: 100%!important;
+  padding: 0;
+  width: 100%;
+}
+#player-1{
+  height: 100%!important;
+  padding: 0;
+  width: 100%;
+}
+.react-jw-player-container .jw-aspect .jw-reset{
+  padding: 0!important;
+}
