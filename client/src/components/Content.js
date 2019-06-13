@@ -4,6 +4,7 @@ import Schedule from './Schedule'
 import {connect} from 'react-redux'
 import Player from './Player'
 import Replay from './Replay'
+import Videojs from './Videojs'
 
 class Content extends Component {
     render() {
@@ -19,7 +20,7 @@ class Content extends Component {
             return (
                 <div className="content">
                     <ContentHeader />
-                    <Player />
+                    <Videojs />
                 </div>
             )
         }
@@ -27,7 +28,7 @@ class Content extends Component {
             return (
                 <div className="content">
                     <ContentHeader />
-                    <Replay />
+                    <Videojs />
                 </div>
             )
         }

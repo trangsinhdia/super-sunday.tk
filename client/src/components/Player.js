@@ -55,7 +55,7 @@ class ReactJWPlayerContainer extends React.Component {
             className='jwplayer'
             image = {background}
             playlist={this.props.playlist}
-            file='rtmp://supersunday.zapto.org:1935/live/tutc'
+            file='https://wowzaec2demo.streamlock.net/live/bigbuckbunny/playlist.m3u8'
             onAdPlay={this.onAdPlay}
             onReady={this.onReady}
             onVideoLoad={this.onVideoLoad}
