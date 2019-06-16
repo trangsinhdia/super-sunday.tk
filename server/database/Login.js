@@ -3,10 +3,10 @@ const dataBase = 'SuperSunday'
 const col = 'User'
 
 module.exports = {
-    Login: (user, pass, callback) => {
+    Login: (email, pass, callback) => {
         ConnectionDatabase.connect().then((client) => {
             client.db(dataBase).collection(col).findOne({
-                username: user,
+                email: email,
                 password: pass
             }, function(err, result) {
                 if (err){

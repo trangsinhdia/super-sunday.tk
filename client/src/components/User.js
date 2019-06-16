@@ -32,11 +32,11 @@ class User extends Component {
                 <div className="btn-group">
                     <this.User />
                     <div className="dropdown-menu">
-                        <a className="dropdown-item" href="#">Action</a>
-                        <a className="dropdown-item" href="#">Another action</a>
-                        <a className="dropdown-item" href="#">Something else here</a>
+                        <a className="dropdown-item" href="#">Thông tin</a>
+                        <a className="dropdown-item" href="#">Đổi mật khẩu</a>
+                        <a className="dropdown-item" href="#">Đổi Email</a>
                         <div className="dropdown-divider" />
-                        <a className="dropdown-item" href="#">Separated link</a>
+                        <a className="dropdown-item" href="#">Đăng Xuất</a>
                     </div>
                 </div>
                 <div style={{marginTop: '14px', marginBottom: '3px'}}>

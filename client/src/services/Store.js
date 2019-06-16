@@ -2,8 +2,9 @@ var redux = require('redux')
 
 const SSInitialState = {
     click: {
-        nav: '',
-        login: ''
+        nav: null,
+        login: null,
+        register: null
     },
     setting: {
         full: '',
@@ -23,6 +24,8 @@ const SSReducer = (state = SSInitialState, action) => {
             return {...state, click: {...state.click, nav: action.nav}}
         case "CLICK_LOGIN":
             return {...state, click: {...state.click, login: action.login}}
+        case "CLICK_REGISTER":
+            return {...state, click: {...state.click, register: action.register}}
         case "SETTING":
             if(action.full || action.full === false){
                 return {...state, setting: {...state.setting, full: action.full}}

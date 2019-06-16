@@ -11,8 +11,24 @@ class Table extends Component {
     }
 
     componentWillMount(){
-        axios.get('/gettable')
-        .then(res => this.setState({table: res.data}))
+        axios.get('/gettable/Premier League')
+        .then((res) => {
+            if(res.data.name !== 'MongoError'){
+                this.setState({table: res.data})
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    getDataLeague = (league) => {
+        axios.get('/gettable/' + league)
+        .then((res) => {
+            if(res.data.name !== 'MongoError'){
+                this.setState({table: res.data})
+            }
+        })
         .catch(function (error) {
             console.log(error);
         });
@@ -43,15 +59,15 @@ class Table extends Component {
             <div style={{height: '100%', wight: '100%'}}>
                 <div className="CLContentHeader BXHHeader">
                     <span className="CLContentTitle BXHTitle">BXH</span>
-                    <div className="btn-group btn-group-toggle" data-toggle="buttons" style={{margin: '0.5rem 0'}}>
-                        <label className={"btn active " + this.props.theme}>
+                    <div className="btn-group btn-group-toggle" data-toggle="buttons" style={{margin: '0.5rem 0 0.5rem 1rem'}}>
+                        <label className={"btn active " + this.props.theme} onClick={() => {this.getDataLeague('Premier League')}}>
                             <input type="radio" name="options" id="option1" autoComplete="off" defaultChecked />Premier League
                         </label>
-                        <label className={"btn " + this.props.theme}>
-                            <input type="radio" name="options" id="option2" autoComplete="off" />La liga
+                        <label className={"btn " + this.props.theme} onClick={() => {this.getDataLeague('La Liga')}}>
+                            <input type="radio" name="options" id="option2" autoComplete="off"/>La liga
                         </label>
-                        <label className={"btn " + this.props.theme}>
-                            <input type="radio" name="options" id="option3" autoComplete="off" />Serie A
+                        <label className={"btn " + this.props.theme} onClick={() => {this.getDataLeague('Serie A')}}>
+                            <input type="radio" name="options" id="option3" autoComplete="off"/>Serie A
                         </label>
                     </div>
                 </div>

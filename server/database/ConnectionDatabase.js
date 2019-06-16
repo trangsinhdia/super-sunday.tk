@@ -1,5 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
-var connectionString = 'mongodb://localhost:27017/SuperSunday';
+var connectionString = 'mongodb://127.0.0.1:27017/SuperSunday';
 
 module.exports = {
     create : () => {

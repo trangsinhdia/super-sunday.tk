@@ -12,6 +12,7 @@ var login = require('./routes/Login.js')
 var chat = require('./function/Chat')
 var getReplay = require('./routes/GetReplay')
 var getSchedule = require('./routes/GetSchedule')
+var policy = require('./routes/policy')
 
 var app = express();
 
@@ -31,5 +32,6 @@ app.use('/register', register)
 app.use('/login', login)
 app.use('/getreplay', getReplay)
 app.use('/getschedule', getSchedule)
+app.use('/policy', policy)
 
 module.exports = app;

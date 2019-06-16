@@ -1,12 +1,16 @@
 var ConnectionDatabase = require('./ConnectionDatabase')
 const dataBase = 'SuperSunday'
 const col = 'Table'
+
 module.exports = {
-    getTable: (callback) => {
+    getTable: (leagu, callback) => {
         ConnectionDatabase.connect().then((client) => {
-            client.db(dataBase).collection(col).find({}).toArray(function(err, result) {
-                if (err) throw err;
-                callback(result)
+            client.db(dataBase).collection(col).find({league: leagu}).toArray((err, result) => {
+                if (err){
+                    callback(err, null)
+                    throw err;
+                }
+                callback(null, result)
                 client.close();
             });
         })

@@ -14,6 +14,9 @@ class Chat extends Component {
     componentWillMount() {
         this.socket = io('localhost:3002');
         this.socket.on('id', res => console.log(res)) // lắng nghe event có tên 'id'
+        this.socket.on('chathistory', (response) => {
+            this.setState({messages: response})
+        })
         this.socket.on('newMessage', (response) => {
             const messages = this.state.messages
             messages.push(response)
@@ -49,9 +52,15 @@ class Chat extends Component {
 
     sendnewMessage = () => {
         if (this.state.message) {
-            this.socket.emit("newMessage", this.state.message, this.props.session.username); //gửi event về server
+            this.socket.emit("newMessage", {
+                message: this.state.message,
+                user: this.props.session.username,
+                time: new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' })
+            }); //gửi event về server
         }
     }
+
+
 
     FooterChat = () => {
         if(this.props.session === null){
@@ -59,10 +68,10 @@ class Chat extends Component {
                 <div className="footerChat">
                     <div className="profileChat">
                         <span className="img avatarChat" />
-                        <span className="usernameChat">trangsinhdia</span>
+                        <span className="usernameChat">Guest</span>
                     </div>
                     <div style={{width: '100%'}}>
-                        <div className="loginToChat">Đăng nhập để trò chuyện!</div>
+                        <div className="loginToChat" onClick={() => this.props.setClickLogin(true)}>Đăng nhập để trò chuyện!</div>
                     </div>
                 </div>
             )
@@ -114,4 +123,12 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps)(Chat)
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        setClickLogin: (login) => {
+            dispatch({type:"CLICK_LOGIN", login})
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Chat)

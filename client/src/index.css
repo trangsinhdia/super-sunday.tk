@@ -26,6 +26,9 @@
   background: #38003c!important;
 }
 
+a{
+  cursor: pointer;
+}
 body{
   background-image: url(https://pl.ecal.com/assets/branding/pl.jpg);
   background-size: cover;
@@ -72,7 +75,7 @@ body::before{
   position: absolute;
   background-color: transparent;
   min-height: 310px;
-  min-width: 694px;
+  min-width: 1092px;
   height: auto;
   width: auto;
   box-shadow: 0 0 25px 0 rgba(0,0,0,1.5);
@@ -115,21 +118,23 @@ body::before{
       width: calc((100% - 29.6%) - 70px);
   }
 }
-@media (max-width: 1032px){
-  .ContentLeft{
-      /* display: none; */
+@media (max-width: 1093px){
+  /* .ContentLeft{
       width: 29.6%;
   }
   .content{
       width: calc((100% - 29.6%) - 70px);
+  } */
+  .row{
+    min-width: 1092px;
   }
 }
-@media (max-width: 694px){
+@media (max-width: 1033px){
   .ContentLeft{
-      display: none;
+    width: 29.6%;
   }
   .content{
-      width: 623px!important;
+      width: calc((100% - 29.6%) - 70px);
   }
 }
 .RedNav{
@@ -360,6 +365,128 @@ abbr[title]{
   background-position: -80px -180px;
 }
 
+.JUV{
+  background-image: url(./img/JUV.png)
+}
+.NAP{
+  background-image: url(./img/NAP.png)
+}
+.ATA{
+  background-image: url(./img/ATA.png)
+}
+.INT{
+  background-image: url(./img/INT.png)
+}
+.MIL{
+  background-image: url(./img/MIL.png)
+}
+.ROMA{
+  background-image: url(./img/ROMA.png)
+}
+.TOR{
+  background-image: url(./img/TOR.png)
+}
+.LAZ{
+  background-image: url(./img/LAZ.png)
+}
+.SMP{
+  background-image: url(./img/SMP.png)
+}
+.BOL{
+  background-image: url(./img/BOL.png)
+}
+.SAS{
+  background-image: url(./img/SAS.png)
+}
+.UDI{
+  background-image: url(./img/UDI.png)
+}
+.SPAL{
+  background-image: url(./img/SPAL.png)
+}
+.PAR{
+  background-image: url(./img/PAR.png)
+}
+.CAG{
+  background-image: url(./img/CAG.png)
+}
+.FIO{
+  background-image: url(./img/FIO.png)
+}
+.GEN{
+  background-image: url(./img/GEN.png)
+}
+.EMP{
+  background-image: url(./img/EMP.png)
+}
+.FRO{
+  background-image: url(./img/FRO.png)
+}
+.CVO{
+  background-image: url(./img/CVO.png)
+}
+
+.BAR{
+  background-image: url(./img/BAR.png)
+}
+.ATM{
+  background-image: url(./img/ATM.png)
+}
+.MAD{
+  background-image: url(./img/MAD.png)
+}
+.VAL{
+  background-image: url(./img/VAL.png)
+}
+.GET{
+  background-image: url(./img/GET.png)
+}
+.SEV{
+  background-image: url(./img/SEV.png)
+}
+.ESP{
+  background-image: url(./img/ESP.png)
+}
+.BIL{
+  background-image: url(./img/BIL.png)
+}
+.RSO{
+  background-image: url(./img/RSO.png)
+}
+.BET{
+  background-image: url(./img/BET.png)
+}
+.ALV{
+  background-image: url(./img/ALV.png)
+}
+.EIB{
+  background-image: url(./img/EIB.png)
+}
+.LEG{
+  background-image: url(./img/LEG.png)
+}
+.VIL{
+  background-image: url(./img/VIL.png)
+}
+.LEV{
+  background-image: url(./img/LEV.png)
+}
+.VLD{
+  background-image: url(./img/VLD.png)
+}
+.CEL{
+  background-image: url(./img/CEL.png)
+}
+.GIR{
+  background-image: url(./img/GIR.png)
+}
+.HUE{
+  background-image: url(./img/HUE.png)
+}
+.RAY{
+  background-image: url(./img/RAY.png)
+}
+
 .MNC50{
   background-position: -550px 0;
 }
@@ -432,7 +559,7 @@ background: #f1f1f1;
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-background: #f1f1f1; 
+background: #E5E5E9; 
 }
 
 /* Handle on hover */
@@ -477,6 +604,7 @@ background: #888;
   font-family: PremierRegular;
   height: calc(100% - 89px);
   width: 99.9%;
+  overflow: hidden;
 }
 .allMatch{
 }
@@ -873,8 +1001,8 @@ input:focus ~ hr {
   background-size: contain;
   background-image: url(https://pl.ecal.com/421ee6d7a1845cd7dd80436a48e19825.svg);
 }
-.contentDialog div{
-  margin-bottom: 15px;
+.profileGroup div{
+  margin: 10px 0 10px 0;
 }
 .contentDialog{
   padding: 25px;

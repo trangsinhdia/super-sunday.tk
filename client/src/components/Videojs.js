@@ -1,10 +1,31 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 import background from '../img/premier_league_pattern.gif'
 
 class Videojs extends Component {
 
     componentDidMount(){
-        var player = window.videojs(this.refs.videojs)
+        var player = window.videojs(this.refs.videojs, {
+            techOrder: ["html5", "flash"]
+        })
+        setTimeout(() => {
+            if(player.isReady_ === false){
+                console.log(player)
+                this.props.setNotification('error', 'Vui lòng bật Flash player!')
+            }
+        }, 1000)
+    }
+
+    componentDidUpdate(){
+        var player = window.videojs(this.refs.videojs, {
+            techOrder: ["html5", "flash"]
+        })
+        setTimeout(() => {
+            if(player.isReady_ === false){
+                console.log(player)
+                this.props.setNotification('error', 'Vui lòng bật Flash player!')
+            }
+        }, 1000)
     }
 
     render() {
@@ -17,8 +38,7 @@ class Videojs extends Component {
                     controls
                     autoplay
                     preload="auto"
-                    poster={background}
-                    data-setup='{"techorder" : ["flash","html5] }'>
+                    poster={background}>
                     <source src="http://supersunday.zapto.org:8000/live/tutc.flv" type="video/x-flv"></source>
                 </video>
             </div>
@@ -26,4 +46,12 @@ class Videojs extends Component {
     }
 }
 
-export default Videojs;
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        setNotification: (typeN, message) => {
+            dispatch({type: "NOTIFICATION", typeN, message})
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Videojs)

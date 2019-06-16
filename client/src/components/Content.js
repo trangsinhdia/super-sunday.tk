@@ -8,7 +8,7 @@ import Videojs from './Videojs'
 
 class Content extends Component {
     render() {
-        if(this.props.nav === 'schedule' || this.props.nav === ''){
+        if(this.props.nav === 'schedule' || this.props.nav === null){
             return (
                 <div className="content">
                     <ContentHeader />
@@ -28,7 +28,7 @@ class Content extends Component {
             return (
                 <div className="content">
                     <ContentHeader />
-                    <Videojs />
+                    <Replay />
                 </div>
             )
         }

@@ -3,8 +3,11 @@ var router = express.Router();
 var Register = require('../database/Register')
 
 router.post('/', (req, res, next) => {
-    if(req.body.username && req.body.password){
-        Register.Register(req.body.username, req.body.password, (err, state) => {
+    if(Object.entries(req.body).length === 0 && req.body.constructor === Object){
+        res.send('Please using x-www-form-urlencoded or check username and password!')
+    }
+    else{
+        Register.Register(req.body, (err, state) => {
             if(state){
                 res.send(state)
             }
@@ -12,9 +15,6 @@ router.post('/', (req, res, next) => {
                 res.send(err)
             }
         })
-    }
-    else{
-        res.send('Please using x-www-form-urlencoded or check username and password!')
     }
 })
 

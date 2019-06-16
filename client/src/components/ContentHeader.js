@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 
 class ContentHeader extends Component {
     render() {
-        if(this.props.nav === 'schedule' || this.props.nav === ''){
+        if(this.props.nav === 'schedule' || this.props.nav === null){
             return (
                 <div className="ContentHeader">
                     <ScheduleToday />

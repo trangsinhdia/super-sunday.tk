@@ -13,7 +13,7 @@ class CLContent extends Component {
     }
 
     render() {
-        if(this.props.nav === 'schedule' || this.props.nav === ''){
+        if(this.props.nav === 'schedule' || this.props.nav === null){
             return (
                 <div className="CLContent">
                     <Table />

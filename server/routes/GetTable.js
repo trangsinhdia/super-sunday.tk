@@ -2,10 +2,15 @@ var express = require('express');
 var router = express.Router();
 var GetTable = require('../database/GetTable')
 
-GetTable.getTable((dataset) => {
-  router.get('/', function(req, res, next) {
-    res.send(dataset)
-  });
-})
+router.get('/:league', function(req, res, next) {
+    GetTable.getTable(req.params.league, (err, result) => {
+        if(result){
+            res.send(result)
+        }
+        else{
+            res.send(err)
+        }
+    })
+});
 
 module.exports = router;
