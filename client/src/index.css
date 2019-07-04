@@ -6,6 +6,10 @@
   font-family: PremierBold;
   src: url(./font/PremierLeagueW01-Bold.woff2);
 }
+@font-face{
+  font-family: TitleBold;
+  src: url(./font/BungeeInline-Regular.ttf);
+}
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -149,6 +153,10 @@ body::before{
 .YellowNav{
   background-image: linear-gradient(#EBFF01, #38003c);
 }
+.WhiteNav{
+  background-color: white;
+}
+
 .Red{
   background-color: #e90052;
 }
@@ -161,6 +169,7 @@ body::before{
 .Yellow{
   background-color: #EBFF01;
 }
+
 .Red:hover{
   text-decoration: none;
   color: white;
@@ -586,6 +595,7 @@ background: #888;
   font-family: PremierBold;
   font-weight: 400;
   font-size: 22px;
+  font-family: TitleBold;
 }
 .HeaderContentTime{
   font-family: PremierRegular;
@@ -1173,9 +1183,69 @@ input:focus ~ hr {
 }
 .replayPlayer{
   /* style={{width: '99.9%', height: 'calc(100% - 89px)', position: 'relative', backgroundColor: 'white'}} */
-  width: 99.9%;
+  width: 99.8%;
   height: calc(100% - 89px);
   position: relative;
   background-color: white;
-  background-image: url(./img/loading.gif);
+  background-image: url(./img/google-css-spinner-800x600_sm.gif);
+  background-size: cover;
+}
+
+/* Verification */
+#wrapper {
+  font-family: PremierRegular;
+  font-size: 0.9rem;
+  text-align: center;
+  box-sizing: border-box;
+  color: #333;
+}
+#dialog {
+  border: solid 1px #ccc;
+  margin: auto;
+  padding: 20px 30px;
+  display: inline-block;
+  box-shadow: 0 0 4px #ccc;
+  background-color: #FAF8F8;
+  overflow: hidden;
+  position: relative;
+  max-width: 450px;
+}
+#form {
+  max-width: 240px;
+  margin: 15px auto 0;
+}
+.input{
+  margin: 0 5px;
+  text-align: center;
+  line-height: 35px;
+  font-size: 18px;
+  border: solid 1px #ccc;
+  box-shadow: 0 0 5px #ccc inset;
+  outline: none;
+  width: 14%;
+  transition: all .2s ease-in-out;
+  border-radius: 3px;
+}
+.input:focus {
+  border-color: #38003c;
+  box-shadow: 0 0 5px #38003c;
+}
+.input::selection {
+  background: transparent;
+}
+#verify{
+  height: 35px;
+  margin:  25px 0 30px;
+  width: 100%;
+  padding: 6px;
+  background-color: #38003c;
+  border: none;
+  text-transform: uppercase;
+}
+#dialog > div {
+  position: relative;
+  z-index: 1;
+}
+#dialog > h3{
+  font-size: 1.2rem;
 }

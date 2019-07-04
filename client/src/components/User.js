@@ -26,6 +26,11 @@ class User extends Component {
         }
     }
 
+    ChangePassword = () => {
+        console.log('sfasfsdfas')
+        this.props.SetChangePassword(true)
+    }
+
     render() {
         return (
             <div className="User">
@@ -33,7 +38,7 @@ class User extends Component {
                     <this.User />
                     <div className="dropdown-menu">
                         <a className="dropdown-item" href="#">Thông tin</a>
-                        <a className="dropdown-item" href="#">Đổi mật khẩu</a>
+                        <a className="dropdown-item" href="#" onClick={this.ChangePassword}>Đổi mật khẩu</a>
                         <a className="dropdown-item" href="#">Đổi Email</a>
                         <div className="dropdown-divider" />
                         <a className="dropdown-item" href="#">Đăng Xuất</a>
@@ -59,4 +64,12 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps)(User)
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        SetChangePassword: (changePassword) => {
+            dispatch({type: "CLICK_CHANGEPASSWORD", changePassword})
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(User)

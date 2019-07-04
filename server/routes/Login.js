@@ -8,14 +8,14 @@ router.post('/', function(req, res, next){
     if(req.body.email && req.body.password){
         login.Login(req.body.email, req.body.password, (err, result) => {
             if(result){
-                var jwtToken = jwt.sign({username: result.username}, jwtSecretKey, { expiresIn: '1d' });
+                var jwtToken = jwt.sign({username: result.username}, jwtSecretKey, { expiresIn: '6h' });
                 res.cookie('JWToken', jwtToken, { httpOnly:true})
                 let data = {
                     state: 'Login Success',
                     profile: {
                         username: result.username,
+                        email: result.email,
                         phone: result.phone,
-                        birthday: result.birthday,
                         avatar: result.avatar,
                         reference: result.reference
                     }

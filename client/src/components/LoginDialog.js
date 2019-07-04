@@ -11,16 +11,6 @@ class LoginDialog extends Component {
         }
     }
 
-    componentWillMount(){
-        axios.get('/home').then((res) => {
-            if(res.data.state === 'Login Success'){
-                this.props.setSession(res.data.profile)
-            }
-        }).catch((err) => {
-            console.log(err)
-        })
-    }
-
     componentWillUpdate(){
         let fb = document.getElementById('fb')
         if(fb){document.body.removeChild(fb)}
@@ -39,19 +29,28 @@ class LoginDialog extends Component {
     }
 
     LoginAcc = () => {
-        axios.post('/login', {
-            email: this.state.email,
-            password: this.state.password
-        }).then((res) => {
-            console.log(res)
-            if(res.data.state === 'Login Success'){
-                this.props.setSession(res.data.profile)
-                this.props.setNotification('success', 'Đăng nhập thành công !')
-                this.props.setLogin(false)
-            }
-        }).catch((err) => {
-            console.log(err)
-        })
+        if(this.state.email && this.state.password){
+            console.log(this.state.email + ' - ' + this.state.password)
+            axios.post('/login', {
+                email: this.state.email,
+                password: this.state.password
+            }).then((res) => {
+                if(res.data.state === 'Login Success'){
+                    this.props.setSession(res.data.profile)
+                    this.props.SetTheme(res.data.profile.reference.theme)
+                    this.props.setNotification('success', 'Đăng nhập thành công !')
+                    this.props.setLogin(false)
+                }
+                else if(res.data === "Not found account"){
+                    this.props.setNotification('error', 'Sai tên đăng nhập hoặc mật khẩu !')
+                }
+            }).catch((err) => {
+                console.log(err)
+            })
+        }
+        else{
+            this.props.setNotification('error', 'Vui lòng nhập tên đăng nhập và mật khẩu !')
+        }
     }
 
     render() {
@@ -76,7 +75,7 @@ class LoginDialog extends Component {
                             <label>Password</label>
                         </fieldset>
                         <div style={{display: 'inline-block'}}>
-                            <a className="forgetPassword" href="">Quên mật khẩu?</a>
+                            <a className="forgetPassword" style={{color: 'blue', cursor: 'pointer'}} onClick={() => this.props.setForgetPassword(true)}>Quên mật khẩu?</a>
                             <span style={{display: 'block'}}>Chưa có tài khoản?
                                 <a className="register" onClick={() => this.props.setRegister(true)} style={{color: 'blue', cursor: 'pointer'}}> Đăng ký ngay!</a>
                             </span>
@@ -117,6 +116,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         },
         setRegister: (register) => {
             dispatch({type:"CLICK_REGISTER", register})
+        },
+        setForgetPassword: (forgetpassword) => {
+            dispatch({type:"CLICK_FORGETPASSWORD", forgetpassword})
+        },
+        SetTheme: (theme) => {
+            dispatch({type:"SETTING", theme})
         }
     }
 }

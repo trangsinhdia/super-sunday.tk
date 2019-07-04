@@ -97,7 +97,7 @@ class Register extends Component {
                             </p>
                             <button className="pure-material-button-contained" onClick={this.Register}>Đăng Ký</button>
                             <span>Đã có tài khoản?
-                                <a className="forgetPassword" onClick={() => this.setState({register: false})} style={{color: 'blue', cursor: 'pointer'}}> Đăng nhập ngay!</a>
+                                <a className="forgetPassword" onClick={() => this.props.setRegister(false)} style={{color: 'blue', cursor: 'pointer'}}> Đăng nhập ngay!</a>
                             </span>
                         </div>
                     </div>

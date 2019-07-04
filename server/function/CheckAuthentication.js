@@ -6,19 +6,12 @@ const dataBase = 'SuperSunday',
 
 module.exports ={
     isAuthentication: (req, res, next) => {
-        let jwtToken = null
-        const match = new RegExp('JWToken=(.*);').exec(req.headers.cookie)
-        if(match){
-            jwtToken = match[1]
-        }
-        if(req.headers.cookie && jwtToken){
-            jwt.verify(jwtToken, 'foreveralone', function(err, payload){
+        if(req.cookies.JWToken){
+            jwt.verify(req.cookies.JWToken, 'foreveralone', function(err, payload){
                 if(err){
                     res.status(401).json({message: 'Unauthorized user!'});
                 }
                 else {
-                    console.log('decoder: ' + payload.username);
-                    // find
                     ConnectionDatabase.connect().then((client) => {
                         client.db(dataBase).collection(col).findOne({
                             username: payload.username,
@@ -32,7 +25,7 @@ module.exports ={
                                     profile: {
                                         username: result.username,
                                         phone: result.phone,
-                                        birthday: result.birthday,
+                                        email: result.email,
                                         avatar: result.avatar,
                                         reference: result.reference
                                     }

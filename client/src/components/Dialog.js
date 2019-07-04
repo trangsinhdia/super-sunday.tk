@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Register from './RegisterDialog'
-import {connect} from 'react-redux'
 import Login from './LoginDialog'
 import Information from './InformationDialog'
+import ForgetPassword from './ForgetPassword'
+import ChangePassword from './ChangePassword'
 
 class Dialog extends Component {
 
@@ -12,6 +13,8 @@ class Dialog extends Component {
                 <Login />
                 <Register />
                 <Information />
+                <ForgetPassword />
+                <ChangePassword />
             </React.Fragment>
         );
     }

@@ -19,7 +19,6 @@ class Schedule extends Component {
         .then((res) => {
             if(res.data.length > 0){
                 this.setState({schedule: res.data})
-                console.log(this.state.schedule)
             }
         })
         .catch(function (error) {
@@ -27,16 +26,23 @@ class Schedule extends Component {
         });
     }
 
+    GetMacth = (key) => {
+        this.props.SendScheduleData(this.state.schedule[key])
+        this.props.SetSelected({
+            schedule : '',
+            view : 'selected',
+            replay : ''
+        })
+        this.props.SetNavSelected('view')
+    }
+
     printDataLeft = () => {
-        console.log(this.state.schedule)
         if(this.state.schedule !== null){
-            console.log(this.state.schedule)
             var schedule = [];
             for (let i = 0; i < 5; i++) {
-                console.log((new Date().getHours()) - (new Date(this.state.schedule[i].date + ', ' + this.state.schedule[i].time)).getHours())
                 if((new Date().getHours() - (new Date(this.state.schedule[i].date + ', ' + this.state.schedule[i].time)).getHours() >= 0) && (new Date().getHours() - (new Date(this.state.schedule[i].date + ', ' + this.state.schedule[i].time)).getHours() <= (1))){
                     schedule.push(
-                        <div className={"match " + this.props.theme} style={{width: '100%'}}>
+                        <div className={"match " + this.props.theme} style={{width: '100%'}} onClick={() => this.GetMacth(i)}>
                             <div style={{display: 'inline-block', width: 'calc((100% - 43.5px) / 2)', textAlign: 'right'}}>
                                 <span className="teamHome">{this.state.schedule[i].teamHome}</span>
                                 <span className={"logo50 " + this.state.schedule[i].abbrTeamHome + '50'} />
@@ -51,7 +57,7 @@ class Schedule extends Component {
                 }
                 else{
                     schedule.push(
-                        <div className={"match " + this.props.theme} style={{width: '100%'}}>
+                        <div className={"match " + this.props.theme} style={{width: '100%'}} onClick={() => this.GetMacth(i)}>
                             <div style={{display: 'inline-block', width: 'calc((100% - 43.5px) / 2)', textAlign: 'right'}}>
                                 <span className="teamHome">{this.state.schedule[i].teamHome}</span>
                                 <span className={"logo50 " + this.state.schedule[i].abbrTeamHome + '50'} />
@@ -70,23 +76,39 @@ class Schedule extends Component {
     }
 
     printDataRight = () => {
-        console.log(this.state.schedule)
         if(this.state.schedule !== null){
             var schedule = [];
             for (let i = 5; i < 10; i++) {
-                schedule.push(
-                    <div className={"match " + this.props.theme} style={{width: '100%'}}>
-                        <div style={{display: 'inline-block', width: 'calc((100% - 48.5px) / 2)', textAlign: 'right'}}>
-                            <span className="teamHome">{this.state.schedule[i].teamHome}</span>
-                            <span className={"logo50 " + this.state.schedule[i].abbrTeamHome + '50'} />
+                if((new Date().getHours() - (new Date(this.state.schedule[i].date + ', ' + this.state.schedule[i].time)).getHours() >= 0) && (new Date().getHours() - (new Date(this.state.schedule[i].date + ', ' + this.state.schedule[i].time)).getHours() <= (1))){
+                    schedule.push(
+                        <div className={"match " + this.props.theme} style={{width: '100%'}} onClick={() => this.GetMacth(i)}>
+                            <div style={{display: 'inline-block', width: 'calc((100% - 43.5px) / 2)', textAlign: 'right'}}>
+                                <span className="teamHome">{this.state.schedule[i].teamHome}</span>
+                                <span className={"logo50 " + this.state.schedule[i].abbrTeamHome + '50'} />
+                            </div>
+                            <span className="time" style={{border: '1px solid red', color: 'red', backgroundColor: 'white'}}>{'LIVE'}</span>
+                            <div style={{display: 'inline-block', width: 'calc((100% - 43.5px) / 2)'}}>
+                                <span className={"logo50 " + this.state.schedule[i].abbrTeamWay + '50'} />
+                                <span className="teamWay">{this.state.schedule[i].teamWay}</span>
+                            </div>
                         </div>
-                        <span className="time">{this.state.schedule[i].time}</span>
-                        <div style={{display: 'inline-block', width: 'calc((100% - 48.5px) / 2)'}}>
-                            <span className={"logo50 " + this.state.schedule[i].abbrTeamWay + '50'} />
-                            <span className="teamWay">{this.state.schedule[i].teamWay}</span>
+                    );
+                }
+                else{
+                    schedule.push(
+                        <div className={"match " + this.props.theme} style={{width: '100%'}} onClick={() => this.GetMacth(i)}>
+                            <div style={{display: 'inline-block', width: 'calc((100% - 43.5px) / 2)', textAlign: 'right'}}>
+                                <span className="teamHome">{this.state.schedule[i].teamHome}</span>
+                                <span className={"logo50 " + this.state.schedule[i].abbrTeamHome + '50'} />
+                            </div>
+                            <span className="time">{this.state.schedule[i].time}</span>
+                            <div style={{display: 'inline-block', width: 'calc((100% - 43.5px) / 2)'}}>
+                                <span className={"logo50 " + this.state.schedule[i].abbrTeamWay + '50'} />
+                                <span className="teamWay">{this.state.schedule[i].teamWay}</span>
+                            </div>
                         </div>
-                    </div>
-                );
+                    );
+                }
             }
             return schedule;
         }
@@ -128,4 +150,18 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps)(Schedule)
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        SendScheduleData: (live) => {
+            dispatch({type: "LIVE", live})
+        },
+        SetNavSelected: (nav) => {
+            dispatch({type:"CLICK_NAV", nav})
+        },
+        SetSelected: (selected) => {
+            dispatch({type:"SETTING", selected})
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Schedule)

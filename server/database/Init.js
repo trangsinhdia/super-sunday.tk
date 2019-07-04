@@ -124,8 +124,9 @@ async function GetSchedule(day, col) {
               time: (date.getMinutes() === 0) ? ((date.getHours() + ':' + date.getMinutes()) + '0') : ((date.getHours() + ':' + date.getMinutes())),
               teamWay: data.events[j].competitions[0].competitors[1].team.shortDisplayName,
               abbrTeamWay: data.events[j].competitions[0].competitors[1].team.abbreviation,
-              link: ''
+              link: 'rtmp://localhost/live/tutc'
             }
+            console.log(schedule)
             Sche.push(schedule)
             if(j + 1 == data.events.length){
             }
@@ -137,6 +138,7 @@ async function GetSchedule(day, col) {
     if(i + 1 == day.length){
       ConnectionDatabase.connect().then(client => {
         client.db('SuperSunday').collection(col).insertMany(Sche, function(err, res) {
+          console.log('done')
           if (err) throw(err)
         })
       })
@@ -214,7 +216,7 @@ module.exports = {
       CreateCollection('Chat')
       console.log('Inserting data... Please watting!')
       //AddDataTable('Table')
-      //AddDataSchedule('Schedule')
+      AddDataSchedule('Schedule')
       //AddDataReplay('Replay')
   }
 }
